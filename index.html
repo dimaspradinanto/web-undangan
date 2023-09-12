@@ -512,7 +512,7 @@
                 123456780
               </li>
               <li class="list-group-item">
-                <div class="fw-bold">DANA</div>
+                <div class="fw-bold">Saweria</div>
                 <img src="img/saweria.png" alt="Saweria Qr Code Demo" />
                 <p>dont scan !!!,just demo</p>
               </li>
@@ -555,7 +555,19 @@
         </div>
       </div>
     </footer>
-    <!-- footedr end -->
+    <!-- footer end -->
+
+    <!-- bgm -->
+    <div id="audio-container">
+      <audio id="song" autoplay loop>
+        <source src="audio/KARNA SU SAYANG - Near feat Dian Sorowea (Reggae SKA Version  By NIKISUKA) (128 kbps).mp3" type="audio/mp3">
+      </audio>
+
+      <div class="audio-icon-wrapper" style="display: none;" >
+        <i class="bi bi-disc"></i>
+      </div>
+    </div>
+    <!-- bgm end -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
@@ -594,6 +606,8 @@
 
     <script>
       const rootElement = document.querySelector(":root");
+      const audioIconWrapper = document.querySelector('.audio-icon-wrapper');
+
       function disableScroll() {
         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
@@ -608,12 +622,21 @@
       function enableScroll() {
         window.onscroll = function () {};
         rootElement.style.scrollBehavior = "smooth";
-        localStorage.setItem("opened", "true");
+        //localStorage.setItem("opened", "true");
+        playAudio();
       }
 
-      if (!localStorage.getItem("opened")) {
-        disableScroll();
+      function playAudio(){
+        const song = document.querySelector('#song');
+        song.play();
+        // song.volume = 
+        audioIconWrapper.style.display = 'flex';
       }
+
+      // if (!localStorage.getItem("opened")) {
+      //   
+      // }
+      disableScroll();
     </script>
 
     <script>
